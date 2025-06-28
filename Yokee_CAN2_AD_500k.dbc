@@ -1,0 +1,254 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: AD VCU
+VAL_TABLE_ Status_Yawrate_Z1 2 "Signal failure" 1 "Sensor not available" 0 "Signal in specification" ;
+VAL_TABLE_ Parallel_torque_or_speed_or_Acc 2 "Acc_Control" 1 "Speed_Control" 0 "Torque_Control" ;
+VAL_TABLE_ Mode_Control 1 "Value" 0 "Invalue" ;
+VAL_TABLE_ VCU_EPS_Direction 1 "Right" 0 "Left" ;
+VAL_TABLE_ EPS_Direction 255 "Right" 0 "Left" ;
+VAL_TABLE_ iECU_Power_Control 1 "Speed_Control" 0 "Torque_Control" ;
+VAL_TABLE_ iECU_Flag 1 "Valid" 0 "Invalid" ;
+VAL_TABLE_ iECU_Left_Turn_Light 1 "Turn On" 0 "Turn Off" ;
+VAL_TABLE_ iECU_HeadLight 1 "Turn On" 0 "Turn Off" ;
+VAL_TABLE_ iECU_Right_Turn_Light 1 "Turn On" 0 "Turn Off" ;
+VAL_TABLE_ iECU_Gear 3 "R" 2 "N" 1 "D" 0 "P" ;
+VAL_TABLE_ MCU_Motor_Error_Grade_Table 3 "Break Down" 2 "Serious Fault" 1 "Slight Fault" 0 "Normal" ;
+VAL_TABLE_ Energy_Recovery_State_Table 1 "����������" 0 "����������" ;
+VAL_TABLE_ Shift_Table 3 "Reserved" 2 "����" 1 "ǰ��" 0 "�յ�" ;
+VAL_TABLE_ DriveMode_Table 3 "VCU�ٶȿ���" 2 "VCUŤ�ؿ���" 1 "Emergency Stop ��ͣ��0ת��" 0 "��ֹ���У�0Ť��" ;
+VAL_TABLE_ VCU_Motor_Request_Valid_Table_ 1 "Valid" 0 "Invalid" ;
+VAL_TABLE_ for_release 3 "ERROR" 2 "Press Down" 1 "Pull Up
+
+" 0 "Release" ;
+VAL_TABLE_ to_no_fault 1 "Fault" 0 "No Fault" ;
+VAL_TABLE_ for_unknow 3 "Reserved" 2 "Released" 1 "Parked" 0 "Unknow" ;
+VAL_TABLE_ to_valid 1 "Invalid" 0 "Valid " ;
+VAL_TABLE_ for_no_request 3 "Reserved" 2 "LockBrakeRquest
+
+" 1 "ReleaseBrakeRequest" 0 "NoRequest" ;
+
+
+BO_ 1287 AD_Setup_Control: 8 AD
+ SG_ CAN_Sign_tran_State : 16|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Release_R_Bumper : 4|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Release_L_Bumper : 3|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Disable_R_Bumper : 12|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Disable_L_Bumper : 11|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Disable_B_Bumper : 10|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Disable_F_Bumper : 9|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Clear_TRIP : 8|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Release_B_Bumper : 2|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Release_F_Bumper : 1|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Release_Emergency_Button : 0|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 1291 AD_Pwr_Control: 8 AD
+ SG_ Reserved_Sys_Power_Control : 2|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Vehicle_Work_Mode_Control : 32|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Radar_Sys_Power_Control : 6|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Business_Sys_Power_Control : 8|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Network_Sys_Power_Control : 4|2@1+ (1,0) [0|3] ""  VCU
+ SG_ AD_Sys_Power_Control : 0|2@1+ (1,0) [0|3] ""  VCU
+
+BO_ 1290 AD_VCU_Pwr_Control: 8 AD
+ SG_ AD_Vehicle_PwrReq : 0|8@1+ (1,0) [0|255] ""  VCU
+
+BO_ 1286 AD_Control_Body: 8 AD
+ SG_ AD_Horn_2_Control : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ AD_ADS_Light : 17|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ AD_Fof_Light : 16|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Body_Valid : 0|4@1+ (1,0) [0|15] "N/A"  VCU
+ SG_ AD_Low_Beam : 11|1@1+ (1,0) [0|1] "N/A"  VCU
+ SG_ AD_Reversing_Lights : 10|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Double_Flash_Light : 9|1@1+ (1,0) [0|1] ""  VCU
+ SG_ AD_Brake_Light : 8|1@1+ (1,0) [0|1] "N/A"  VCU
+ SG_ AD_Horn_1_Control : 14|1@1+ (1,0) [0|1] "N/A"  VCU
+ SG_ AD_High_Beam : 15|1@1+ (1,0) [0|1] "N/A"  VCU
+ SG_ AD_Right_Turn_Light : 13|1@1+ (1,0) [0|1] "N/A"  VCU
+ SG_ AD_Left_Turn_Light : 12|1@1+ (1,0) [0|1] "N/A"  VCU
+
+BO_ 1284 AD_Control_Accelerate: 8 AD
+ SG_ AD_Energy_Recovery : 4|4@1+ (1,0) [0|1] "N/A" Vector__XXX
+ SG_ AD_Decelerate_Pedal : 32|8@1+ (1,0) [0|100] "%" Vector__XXX
+ SG_ AD_Accelerate_Pedal : 8|8@1+ (1,0) [0|100] "%" Vector__XXX
+ SG_ AD_Speed_Req : 48|16@1+ (0.1,0) [0|80] "km/h"  VCU
+ SG_ AD_Torque_Pedal : 40|8@1+ (1,0) [0|100] "%"  VCU
+ SG_ AD_Accelerate_Gear : 24|8@1+ (1,0) [0|3] "N/A"  VCU
+ SG_ AD_Accelerate_Work_Mode : 16|8@1+ (1,0) [0|2] "N/A"  VCU
+ SG_ AD_Accelerate_Valid : 0|4@1+ (1,0) [0|15] "N/A"  VCU
+
+BO_ 1283 AD_Control_Brake: 8 AD
+ SG_ AD_BrakePressure_Req : 8|8@1+ (1,0) [0|100] "%"  VCU
+ SG_ AD_DBS_Valid : 0|4@1+ (1,0) [0|15] "N/A"  VCU
+
+BO_ 1282 AD_Control_Steering: 8 AD
+ SG_ AD_Steering_Speed_Cmd : 8|8@1+ (0.1,3.5) [3.5|29] ""  VCU
+ SG_ AD_Steering_Angle_Cmd : 32|16@1+ (0.1,-35) [-35|35] "deg"  VCU
+ SG_ AD_Steering_Valid : 0|4@1+ (1,0) [0|15] "N/A"  VCU
+
+
+
+CM_ BO_ 1287 "�����ͣ��Bumper�����С�����";
+CM_ SG_ 1287 CAN_Sign_tran_State "ת���źſ�����־
+0��ת��
+1����ת��";
+CM_ SG_ 1287 AD_Release_R_Bumper "0��Ч��1�����Bumper
+";
+CM_ SG_ 1287 AD_Release_L_Bumper "0��Ч��1�����Bumper
+";
+CM_ SG_ 1287 AD_Disable_R_Bumper "0 ���������Bumper
+1 ������Bumper";
+CM_ SG_ 1287 AD_Disable_L_Bumper "0 ���������Bumper
+1 ������Bumper";
+CM_ SG_ 1287 AD_Disable_B_Bumper "0 ������ú�Bumper
+1 ���ú�Bumper";
+CM_ SG_ 1287 AD_Disable_F_Bumper "0 �������ǰBumper
+1 ����ǰBumper";
+CM_ SG_ 1287 AD_Clear_TRIP "0��Ч��1���С���
+";
+CM_ SG_ 1287 AD_Release_B_Bumper "0��Ч��1�����Bumper
+";
+CM_ SG_ 1287 AD_Release_F_Bumper "0��Ч��1���ǰBumper
+";
+CM_ SG_ 1287 AD_Release_Emergency_Button "0��Ч��1�����ͣ��ť
+";
+CM_ BO_ 1291 "�Զ���ʻϵͳ����ä�״�ϵͳ��ҵ��ϵͳ�����ϵͳ��4G����ϵͳ���µ����
+";
+CM_ SG_ 1291 Reserved_Sys_Power_Control "Ԥ��ϵͳ���µ����  Ĭ���ϵ�
+0�µ磬1�ϵ磬2����
+ZL00042��ZL00043���͸ýӿ�������Monitorϵͳ�����µ���ƽӿڣ����Ϊ�������ܼ���ǰ��̨���ͣ����ֶ���ҪĬ�Ϸ�1������ǰ��̨���͵�Monitor���ܳ��ڱ����ϵ�";
+CM_ SG_ 1291 Vehicle_Work_Mode_Control "Ĭ�ϲ���Ϊ��������ģʽ
+0Ϊ��������ģʽ
+1Ϊ��ʱͣ��
+2Ϊ��ʱ��ͣ��";
+CM_ SG_ 1291 Radar_Sys_Power_Control "��ä�״�ϵͳ���µ���� Ĭ���ϵ�
+0�µ磬1�ϵ磬2���֣�3����";
+CM_ SG_ 1291 Business_Sys_Power_Control "ҵ��ϵͳ���µ���� Ĭ���ϵ�
+0�µ磬1�ϵ磬2���֣�3����";
+CM_ SG_ 1291 Network_Sys_Power_Control "4G����ϵͳ���µ����  Ĭ���ϵ�
+0�µ磬1�ϵ磬2���֣�3����";
+CM_ SG_ 1291 AD_Sys_Power_Control "�Զ���ʻϵͳ���µ���� Ĭ���ϵ�
+0�µ磬1�ϵ磬2����";
+CM_ BO_ 1290 "Զ���ϵ��ź�";
+CM_ SG_ 1290 AD_Vehicle_PwrReq "���̵�Դ����
+0�ػ������̡�����ϵͳ���ϵ磩
+1���������̡�����ϵͳ���ϵ磩
+2���ֵ��̵�ǰ״̬
+3���������̹ػ�2s���ٿ�����ֻ���ڵ����ϵ������·������Ż���Ч��
+4�����µ磨ֻ��Ӧ5����ʱ���յ���ָ��״̬�������µ磬ֱ�ӷ���ָ���Ӧ��
+";
+CM_ BO_ 1286 "ADģʽ��body����
+��AD�ڵ㷢�ͣ���VCU�ڵ����";
+CM_ SG_ 1286 AD_Horn_2_Control "0x00:���ش����ȹ�
+0x01:���ش����ȿ�";
+CM_ SG_ 1286 AD_ADS_Light "0��ADS�ƹ�
+1��ADS�Ƶ���
+2��ADS�Ƹ���";
+CM_ SG_ 1286 AD_Fof_Light "����
+0��ʾδ����
+1��ʾ����";
+CM_ SG_ 1286 AD_Body_Valid "0��ʾ��Ч��1��ʾ���������ɿ�";
+CM_ SG_ 1286 AD_Low_Beam "0��ʾС�ƹر�
+1��ʾС�ƿ���";
+CM_ SG_ 1286 AD_Reversing_Lights "�����ƿ��ƣ�ADģʽ�����κι�����ֻ�ɸýӿڿ��ƣ�
+0��
+1��";
+CM_ SG_ 1286 AD_Double_Flash_Light "˫������
+0��
+1��";
+CM_ SG_ 1286 AD_Brake_Light "ADģʽ�£��ƶ���ֻ�ɸ��źſ��ƣ����˰��¼�ͣ����ң�������ƶ��������κ���������
+0�ƶ��ƹ�
+1�ƶ��ƿ�
+";
+CM_ SG_ 1286 AD_Horn_1_Control "0x00:���ٱ�������
+0x01:���ٱ�������";
+CM_ SG_ 1286 AD_High_Beam "0��ʾ��ƹر�
+1��ʾ��ƿ���";
+CM_ SG_ 1286 AD_Right_Turn_Light "0��ʾ��ת�ƹر�
+1��ʾ��ת�ƿ���";
+CM_ SG_ 1286 AD_Left_Turn_Light "0��ʾ��ת�ƹر�
+1��ʾ��ת�ƿ���";
+CM_ BO_ 1284 "AD��������
+��AD�ڵ㷢�ͣ���VCU�ڵ����";
+CM_ SG_ 1284 AD_Energy_Recovery "�Զ���ʻ�·����������ձ�־λ";
+CM_ SG_ 1284 AD_Decelerate_Pedal "��Ӧ���ٶȼ�����";
+CM_ SG_ 1284 AD_Accelerate_Pedal "��Ӧ���ٶȼ�����";
+CM_ SG_ 1284 AD_Speed_Req "���������٣�km/h��";
+CM_ SG_ 1284 AD_Torque_Pedal "�������ſ���0~100%����ӦŤ��0~90N.m";
+CM_ SG_ 1284 AD_Accelerate_Gear "0:Pפ����  1��Dǰ����  2��N�յ�  3��R���˵�
+";
+CM_ SG_ 1284 AD_Accelerate_Work_Mode "0��ʾ������Ť�ؿ��ƣ�1��ʾ�������ٶȿ��ƣ�2��ʾ�����ɼ��ٶȿ���";
+CM_ SG_ 1284 AD_Accelerate_Valid "0��ʾ��Ч��1��ʾ�����Զ���ʻ";
+CM_ BO_ 1283 "AD�ƶ�����
+��AD�ڵ㷢�ͣ���VCU�ڵ����";
+CM_ SG_ 1283 AD_BrakePressure_Req "�ƶ�̤�壨0~100%������Ӧ0-10Mpaѹ������
+
+";
+CM_ SG_ 1283 AD_DBS_Valid "0��ʾ��Ч��1��ʾ�ƶ��ɿ�";
+CM_ BO_ 1282 "ADת������
+��AD�ڵ㷢�ͣ���VCU�ڵ����";
+CM_ SG_ 1282 AD_Steering_Speed_Cmd "�ֶ�ת����ٶȿ���";
+CM_ SG_ 1282 AD_Steering_Angle_Cmd "ADģʽ�£�-35��+35�� ת�����������Ҹ���";
+CM_ SG_ 1282 AD_Steering_Valid "0��ʾ��Ч��1��ʾת��ɿ�";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_ "DBName" "G14_CAN2_AD";
+BA_ "GenMsgSendType" BO_ 1287 0;
+BA_ "GenMsgCycleTime" BO_ 1287 20;
+BA_ "GenMsgSendType" BO_ 1291 0;
+BA_ "GenMsgCycleTime" BO_ 1291 20;
+BA_ "GenMsgSendType" BO_ 1290 7;
+BA_ "GenMsgCycleTime" BO_ 1290 20;
+BA_ "GenMsgSendType" BO_ 1286 0;
+BA_ "GenMsgCycleTime" BO_ 1286 20;
+BA_ "GenMsgSendType" BO_ 1284 0;
+BA_ "GenMsgCycleTime" BO_ 1284 20;
+BA_ "GenMsgSendType" BO_ 1283 0;
+BA_ "GenMsgCycleTime" BO_ 1283 20;
+BA_ "GenMsgSendType" BO_ 1282 0;
+BA_ "GenMsgCycleTime" BO_ 1282 20;
+

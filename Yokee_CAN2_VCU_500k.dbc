@@ -1,0 +1,890 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: AD VCU
+VAL_TABLE_ Status_Yawrate_Z1 2 "Signal failure" 1 "Sensor not available" 0 "Signal in specification" ;
+VAL_TABLE_ Parallel_torque_or_speed_or_Acc 2 "Acc_Control" 1 "Speed_Control" 0 "Torque_Control" ;
+VAL_TABLE_ Mode_Control 1 "Value" 0 "Invalue" ;
+VAL_TABLE_ VCU_EPS_Direction 1 "Right" 0 "Left" ;
+VAL_TABLE_ EPS_Direction 255 "Right" 0 "Left" ;
+VAL_TABLE_ iECU_Power_Control 1 "Speed_Control" 0 "Torque_Control" ;
+VAL_TABLE_ iECU_Flag 1 "Valid" 0 "Invalid" ;
+VAL_TABLE_ iECU_Left_Turn_Light 1 "Turn On" 0 "Turn Off" ;
+VAL_TABLE_ iECU_HeadLight 1 "Turn On" 0 "Turn Off" ;
+VAL_TABLE_ iECU_Right_Turn_Light 1 "Turn On" 0 "Turn Off" ;
+VAL_TABLE_ iECU_Gear 3 "R" 2 "N" 1 "D" 0 "P" ;
+VAL_TABLE_ MCU_Motor_Error_Grade_Table 3 "Break Down" 2 "Serious Fault" 1 "Slight Fault" 0 "Normal" ;
+VAL_TABLE_ Energy_Recovery_State_Table 1 "" 0 "" ;
+VAL_TABLE_ Shift_Table 3 "Reserved" 2 "" 1 "ǰ" 0 "յ" ;
+VAL_TABLE_ DriveMode_Table 3 "VCUٶȿ" 2 "VCUŤؿ" 1 "Emergency Stop ͣ0ת" 0 "ֹУ0Ť" ;
+VAL_TABLE_ VCU_Motor_Request_Valid_Table_ 1 "Valid" 0 "Invalid" ;
+VAL_TABLE_ for_release 3 "ERROR" 2 "Press Down" 1 "Pull Up
+
+" 0 "Release" ;
+VAL_TABLE_ to_no_fault 1 "Fault" 0 "No Fault" ;
+VAL_TABLE_ for_unknow 3 "Reserved" 2 "Released" 1 "Parked" 0 "Unknow" ;
+VAL_TABLE_ to_valid 1 "Invalid" 0 "Valid " ;
+VAL_TABLE_ for_no_request 3 "Reserved" 2 "LockBrakeRquest
+
+" 1 "ReleaseBrakeRequest" 0 "NoRequest" ;
+
+
+BO_ 932 Vehicle_Mileage2: 8 VCU
+ SG_ Vehicle_Mileage2_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ Vehicle_TRIP1 : 32|28@1+ (1,0) [0|268435455] "cm"  AD
+ SG_ Vehicle_Remote_Mileage1 : 0|20@1+ (0.1,0) [0|104857.5] "km"  AD
+
+BO_ 931 Vehicle_Mileage1: 8 VCU
+ SG_ Vehicle_Mileage1_MsgCntr : 48|4@1+ (1,0) [0|15] ""  AD
+ SG_ Vchicle_AD_Mileage1 : 24|24@1+ (0.1,0) [0|1677721.5] "km"  AD
+ SG_ Vehicle_ODO1 : 0|24@1+ (0.1,0) [0|1677721.5] "km"  AD
+
+BO_ 689 BMS_2B1h: 8 VCU
+ SG_ BMS_Battery_Capacity_Kwh : 16|16@1+ (0.01,0) [0|65535] "Kwh" Vector__XXX
+ SG_ BMS_Battery_Capacity_Ah : 48|10@1+ (1,0) [0|1023] "Ah" Vector__XXX
+ SG_ BMS_HVBatLowestTemCellNum : 32|8@1+ (1,0) [0|250] ""  AD
+ SG_ BMS_HVBatLowestTem : 0|8@1+ (1,-40) [-40|125] ""  AD
+ SG_ BMS_HVBatHighestTemCellNum : 40|8@1+ (1,0) [0|250] ""  AD
+ SG_ BMS_HVBatHighestTem : 8|8@1+ (1,-40) [-40|125] ""  AD
+
+BO_ 673 BMS_2A1h: 8 VCU
+ SG_ BMS_HVBatCellVolDiff : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ BMS_HVBatHighestVolCellNum : 40|8@1+ (1,0) [0|250] ""  AD
+ SG_ BMS_HVBatLowestVolCellNum : 32|8@1+ (1,0) [0|250] ""  AD
+ SG_ BMS_HVBatHighestCellVol : 16|16@1+ (1,0) [0|5000] "mV"  AD
+ SG_ BMS_HVBatLowestCellVol : 0|16@1+ (1,0) [0|5000] "mV"  AD
+
+BO_ 160 BMS_A0h: 8 VCU
+ SG_ BMS_HVDisplaySOH : 56|8@1+ (1,0) [0|100] "%"  AD
+ SG_ BMS_Sys_Flt : 48|8@1+ (1,0) [0|255] ""  AD
+ SG_ BMS_Charge_StsCc : 44|1@1+ (1,0) [0|1] ""  AD
+ SG_ BMS_Charge_StsCc2 : 43|1@1+ (1,0) [0|1] ""  AD
+ SG_ BMS_Sys_Sts : 40|3@1+ (1,0) [0|7] ""  AD
+ SG_ BMS_HVBatSOC : 32|8@1+ (0.4,0) [0|100] "%"  AD
+ SG_ BMS_HVBatCrnt : 0|16@1+ (0.1,-1000) [-1000|1000] "A"  AD
+ SG_ BMS_HVBatVol : 16|16@1+ (0.1,0) [0|1000] "V"  AD
+
+BO_ 782 VCU_Vehicle_Error_Status: 8 VCU
+ SG_ VCU_CAN2_Fault : 58|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ VCU_CAN1_Fault : 61|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ VCU_CAN0_Fault : 53|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ VCU_PwrCtrl_Fault : 24|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ VCU_EPBActinWhenEBSMF : 12|1@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_EEPROM_Fault : 10|1@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_EBSActinWhenEPBMF : 11|1@1+ (1,0) [0|1] ""  AD
+ SG_ Error_Code : 0|10@1+ (1,0) [0|999] ""  AD
+
+BO_ 323 DBS_Status2: 8 VCU
+ SG_ DBS_WarringCode : 24|16@1+ (1,0) [0|65535] ""  AD
+ SG_ DBS_CheckSum2 : 56|8@1+ (1,0) [0|255] ""  AD
+ SG_ DBS_Fault_Code : 0|24@1+ (1,0) [0|16777215] "N/A"  AD
+ SG_ DBS_RollingCounter2 : 48|4@1+ (1,0) [0|15] ""  AD
+
+BO_ 1811 TPMS_Status: 8 VCU
+ SG_ ID_Match_State : 32|2@1+ (1,0) [0|3] ""  AD
+ SG_ Hight_Temperature_Warning : 38|2@1+ (1,0) [0|3] ""  AD
+ SG_ Sensor_state : 36|2@1+ (1,0) [0|3] ""  AD
+ SG_ Sensor_Power_State : 56|2@1+ (1,0) [0|3] ""  AD
+ SG_ Pressure_Warning : 61|2@1+ (1,0) [0|3] ""  AD
+ SG_ Pressure_Unbalance : 58|2@1+ (1,0) [0|3] ""  AD
+ SG_ Tire_Temperature : 24|8@1+ (1,-55) [-55|200] ""  AD
+ SG_ Tire_Pressure : 8|16@1+ (0.1,0) [0|2000] "Kpa"  AD
+ SG_ Tire_Num : 0|8@1+ (1,0) [0|255] ""  AD
+ SG_ Tire_Leak_State : 34|2@1+ (1,0) [0|3] ""  AD
+
+BO_ 322 DBS_Status: 8 VCU
+ SG_ DBS_EstopFlag : 54|1@1+ (1,0) [0|1] ""  AD
+ SG_ DBS_PedaiFlag : 55|1@1+ (1,0) [0|1] ""  AD
+ SG_ BrakePressureReqACK : 16|8@1+ (1,0) [0|1] ""  AD
+ SG_ DBS_Work_Mode : 8|8@1+ (1,0) [0|2] ""  AD
+ SG_ DBS_RollingCounter : 48|4@1+ (1,0) [0|15] ""  AD
+ SG_ DBS_Ref_Iq : 40|8@1+ (0.5,-20) [-20|107.5] "A"  AD
+ SG_ DBS_Park_Warning : 6|2@1+ (1,0) [0|1] ""  AD
+ SG_ DBS_PeadalOpening : 32|8@1+ (1,0) [0|100] "%"  AD
+ SG_ DBS_CheckSum : 56|8@1+ (1,0) [0|255] ""  AD
+ SG_ DBS_HP_pressure : 24|8@1+ (0.1,0) [0|10] "Mpa"  AD
+ SG_ DBS_System_Status : 0|2@1+ (1,0) [0|3] "N/A"  AD
+
+BO_ 340 VCU_DBS_Req: 8 VCU
+ SG_ VCU_DBS_Work_Mode : 8|8@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_ABS_Active : 24|8@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_DBS_Pressure_Request : 16|8@1+ (0.1,0) [0|10] "Mpa"  AD
+ SG_ VCU_DBS_Request_Flag : 0|8@1+ (1,0) [0|1] "N/A"  AD
+
+BO_ 930 Vehicle_Odometer_Status: 8 VCU
+ SG_ Vehicle_Odometer_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ Vehicle_AD_Mileage : 42|18@1+ (0.8,0) [0|209714.4] "km"  AD
+ SG_ Vehicle_Remote_Mileage : 30|12@1+ (0.8,0) [0|3276] "km"  AD
+ SG_ Vehicle_TRIP : 18|12@1+ (0.8,0) [0|3276] "km"  AD
+ SG_ Vehicle_ODO : 0|18@1+ (0.8,0) [0|209714.4] "km"  AD
+
+BO_ 778 VCU_Vehicle_HVBat_Status: 8 VCU
+ SG_ Vehicle_Poweroff_Channel : 56|4@1+ (1,0) [0|0] ""  AD
+ SG_ Vehicle_Poweroff_Countdown_Time : 2|6@1+ (0.1,0) [0|5] ""  AD
+ SG_ Battery_Work_State : 0|2@1+ (1,0) [0|3] ""  AD
+ SG_ Vehicle_Soc : 48|8@1+ (1,0) [0|100] "%"  AD
+ SG_ Vehicle_HVBat_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ High_Voltage_Battery_Voltage : 24|16@1+ (0.1,0) [0|1000] "V"  AD
+ SG_ High_Voltage_Battery_MaxTem : 40|8@1+ (1,-40) [-40|210] ""  AD
+ SG_ High_Voltage_Battery_Current : 8|16@1+ (0.1,-1000) [-1000|1000] "A"  AD
+
+BO_ 777 VCU_RR_Wheel_Status: 8 VCU
+ SG_ RR_Tire_Leak_State : 4|1@1+ (1,0) [0|1] ""  AD
+ SG_ RR_Wheel_Status_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ RR_Tire_Temperature : 48|8@1+ (1,-55) [-55|200] ""  AD
+ SG_ RR_Tire_Pressure : 16|16@1+ (0.1,0) [0|500] "Kpa"  AD
+ SG_ RR_Sensor_state : 7|1@1+ (1,0) [0|1] ""  AD
+ SG_ RR_Pressure_Warning : 5|2@1+ (1,0) [0|3] ""  AD
+ SG_ RR_WhlSpd : 32|16@1+ (0.01,0) [0|60] "km/h"  AD
+ SG_ RR_Reserved : 8|8@1+ (1,0) [0|255] ""  AD
+
+BO_ 775 VCU_FR_Wheel_Status: 8 VCU
+ SG_ FR_Tire_Leak_State : 4|1@1+ (1,0) [0|1] ""  AD
+ SG_ FR_Pressure_Warning : 5|2@1+ (1,0) [0|3] ""  AD
+ SG_ FR_Wheel_Status_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ FR_Tire_Temperature : 48|8@1+ (1,-55) [-55|200] ""  AD
+ SG_ FR_Tire_Pressure : 16|16@1+ (0.1,0) [0|500] "Kpa"  AD
+ SG_ FR_Sensor_state : 7|1@1+ (1,0) [0|1] ""  AD
+ SG_ FR_WhlSpd : 32|16@1+ (0.01,0) [0|60] "km/h"  AD
+ SG_ FR_Reserved : 8|8@1+ (1,0) [0|255] ""  AD
+
+BO_ 776 VCU_RL_Wheel_Status: 8 VCU
+ SG_ RL_Pressure_Warning : 5|2@1+ (1,0) [0|3] ""  AD
+ SG_ RL_Tire_Temperature : 48|8@1+ (1,-55) [-55|200] ""  AD
+ SG_ RL_Tire_Pressure : 16|16@1+ (0.1,0) [0|500] "Kpa"  AD
+ SG_ RL_Sensor_state : 7|1@1+ (1,0) [0|1] ""  AD
+ SG_ RL_Tire_Leak_State : 4|1@1+ (1,0) [0|1] ""  AD
+ SG_ RL_WhlSpd : 32|16@1+ (0.01,0) [0|60] "km/h"  AD
+ SG_ RL_Reserved : 8|8@1+ (1,0) [0|255] ""  AD
+ SG_ RL_Wheel_Status_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+
+BO_ 774 VCU_FL_Wheel_Status: 8 VCU
+ SG_ FL_Sensor_state : 7|1@1+ (1,0) [0|1] ""  AD
+ SG_ FL_Tire_Temperature : 48|8@1+ (1,-55) [-55|200] ""  AD
+ SG_ FL_Pressure_Warning : 5|2@1+ (1,0) [0|3] ""  AD
+ SG_ FL_Tire_Leak_State : 4|1@1+ (1,0) [0|1] ""  AD
+ SG_ FL_Tire_Pressure : 16|16@1+ (0.1,0) [0|500] "Kpa"  AD
+ SG_ FL_WhlSpd : 32|16@1+ (0.01,0) [0|60] "km/h"  AD
+ SG_ FL_Reserved : 8|8@1+ (1,0) [0|255] ""  AD
+ SG_ FL_Wheel_Status_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+
+BO_ 771 VCU_Vehicle_Status_1: 8 VCU
+ SG_ Vehicle_Range : 8|10@1+ (1,0) [0|1023] "Km"  AD
+ SG_ Drive_Mode_State : 4|4@1+ (1,0) [0|15] ""  AD
+ SG_ EPB_Status : 3|1@1+ (1,0) [0|1] ""  AD
+ SG_ Accelerator_Pedal_Status : 40|8@1+ (1,0) [0|100] "%"  AD
+ SG_ Brake_Pedal_Status : 32|8@1+ (1,0) [0|100] "%"  AD
+ SG_ Vehicle_Status_1_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ Vehicle_Gear : 0|2@1+ (1,0) [0|3] "N/A"  AD
+
+BO_ 772 VCU_Vehicle_Status_2: 8 VCU
+ SG_ Vehicle_Status_2_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ Vehicle_Steering_Angle : 32|16@1+ (0.1,-35) [-35|35] "deg"  AD
+ SG_ Vehicle_Brake_Pressure : 16|16@1+ (0.01,0) [0|10] "Mpa"  AD
+ SG_ Vehicle_Speed : 0|16@1+ (0.1,-80) [-80|80] "km/h"  AD
+
+BO_ 769 VCU_Vehicle_Diagnosis: 8 VCU
+ SG_ Horn_2_State : 43|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_VehRdy : 37|1@1+ (1,0) [0|1] ""  AD
+ SG_ ADS_Light_State : 35|2@1+ (1,0) [0|3] ""  AD
+ SG_ KERS_LimitedState : 56|1@1+ (1,0) [0|1] ""  AD
+ SG_ Oil_pot_State : 4|1@1+ (1,0) [0|1] ""  AD
+ SG_ Business_Relay_State : 31|1@1+ (1,0) [0|1] ""  AD
+ SG_ Relay_4G_State : 30|1@1+ (1,0) [0|1] ""  AD
+ SG_ Radar_Relay_State : 29|1@1+ (1,0) [0|1] ""  AD
+ SG_ Orin_Relay_State : 28|1@1+ (1,0) [0|1] ""  AD
+ SG_ Motor_Temp_State : 27|1@1+ (1,0) [0|1] ""  AD
+ SG_ Fog_Light_state : 11|1@1+ (1,0) [0|1] ""  AD
+ SG_ Power_Button_State : 2|1@1+ (1,0) [0|1] ""  AD
+ SG_ EPB_Button_State : 3|1@1+ (1,0) [0|1] ""  AD
+ SG_ Motor_Torque_Limit_State : 8|1@1+ (1,0) [0|1] ""  AD
+ SG_ B_Press_Switch_Collision_State : 26|1@1+ (1,0) [0|1] ""  AD
+ SG_ Remo_Touch_Switch_Disable_State : 24|1@1+ (1,0) [0|1] ""  AD
+ SG_ F_Press_Switch_Collision_State : 25|1@1+ (1,0) [0|1] ""  AD
+ SG_ B_Touch_Switch_Disable_State : 21|1@1+ (1,0) [0|1] ""  AD
+ SG_ L_Touch_Switch_Disable_State : 22|1@1+ (1,0) [0|1] ""  AD
+ SG_ R_Touch_Switch_Disable_State : 23|1@1+ (1,0) [0|1] ""  AD
+ SG_ F_Touch_Switch_Disable_State : 20|1@1+ (1,0) [0|1] ""  AD
+ SG_ R_Touch_Switch_Collision_State : 19|1@1+ (1,0) [0|1] ""  AD
+ SG_ L_Touch_Switch_Collision_State : 18|1@1+ (1,0) [0|1] ""  AD
+ SG_ AD_FaultCode : 52|4@1+ (1,0) [0|15] ""  AD
+ SG_ EPB_Diagnosis : 14|1@1+ (1,0) [0|1] ""  AD
+ SG_ Move_Switch : 47|1@1+ (1,0) [0|1] ""  AD
+ SG_ LowBeam_State : 33|1@1+ (1,0) [0|1] ""  AD
+ SG_ Reversing_Lights_State : 34|1@1+ (1,0) [0|1] ""  AD
+ SG_ Tire_Sensor_State : 41|1@1+ (1,0) [0|1] ""  AD
+ SG_ Brake_Light_State : 42|1@1+ (1,0) [0|1] ""  AD
+ SG_ Vehicle_Fault_Grade : 16|2@1+ (1,0) [0|3] ""  AD
+ SG_ EPS_State : 10|1@1+ (1,0) [0|1] "N/A"  AD
+ SG_ Vehicle_Diagnosis_MsgCntr : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ Horn_1_State : 40|1@1+ (1,0) [0|1] ""  AD
+ SG_ HighBeam_State : 15|1@1+ (1,0) [0|1] ""  AD
+ SG_ Right_Turn_Light_State : 48|1@1+ (1,0) [0|1] ""  AD
+ SG_ Left_Turn_Light_State : 32|1@1+ (1,0) [0|1] ""  AD
+ SG_ B_Touch_Switch_Collision_State : 13|1@1+ (1,0) [0|1] ""  AD
+ SG_ F_Touch_Switch_Collision_State : 12|1@1+ (1,0) [0|1] ""  AD
+ SG_ BMS_State : 9|1@1+ (1,0) [0|1] ""  AD
+ SG_ Emergency_Button_State : 0|1@1+ (1,0) [0|1] ""  AD
+ SG_ DBS_State : 7|1@1+ (1,0) [0|1] "N/A"  AD
+ SG_ AD_State : 6|1@1+ (1,0) [0|1] "N/A"  AD
+ SG_ Remote_State : 5|1@1+ (1,0) [0|1] "N/A"  AD
+ SG_ Motor_State : 1|1@1+ (1,0) [0|1] "N/A"  AD
+
+BO_ 399 EPS_Status: 8 VCU
+ SG_ EPS_Fault_Code : 60|4@1+ (1,0) [0|15] ""  AD
+ SG_ EPS_Current : 40|8@1+ (1,-128) [-128|127] "A"  AD
+ SG_ EPS_Fault_Grade : 56|4@1+ (1,0) [0|255] ""  AD
+ SG_ EPS_Temperature : 48|8@1+ (1,-128) [-128|127] ""  AD
+ SG_ EPS_Angle_Spd : 24|16@1+ (1,0) [50|800] "N/A"  AD
+ SG_ EPS_Calibration_Status : 5|1@1+ (1,0) [0|1] "N/A"  AD
+ SG_ EPS_StrAngle_Act : 8|16@1+ (1,-500) [-500|500] "deg"  AD
+ SG_ EPS_Fault : 6|1@1+ (1,0) [0|1] "Nm"  AD
+ SG_ EPS_Work_Mode_Status : 7|1@1+ (1,0) [0|1] "N/A"  AD
+
+BO_ 788 VCU_EPS_Req: 8 VCU
+ SG_ VCU_Request_EPS_Angle_Speed : 24|16@1+ (1,0) [50|800] "deg/s"  AD
+ SG_ VCU_Request_EPS_Angle_Calibrate : 5|1@1+ (1,0) [0|1] "N/A"  AD
+ SG_ VCU_Req_EPS_Target_Angle : 8|16@1+ (1,-500) [-500|500] "deg"  AD
+ SG_ VCU_EPS_CtrlEnable : 7|1@1+ (1,0) [0|1] "N/A"  AD
+
+BO_ 267 Remote_Control_Shake: 8 VCU
+ SG_ Remote_X1 : 48|16@1+ (1,-450) [-450|450] "N/A"  AD
+ SG_ Remote_Y1 : 32|16@1+ (1,-450) [-450|450] "N/A"  AD
+ SG_ Remote_Y2 : 16|16@1+ (1,-450) [-450|450] "N/A"  AD
+ SG_ Remote_X2 : 0|16@1+ (1,-450) [-450|450] "N/A"  AD
+
+BO_ 266 Remote_Control_IO: 8 VCU
+ SG_ Remote_A : 16|8@1+ (1,0) [0|2] "N/A"  AD
+ SG_ Remote_D : 40|8@1+ (1,0) [0|2] "N/A"  AD
+ SG_ Remote_C : 32|8@1+ (1,0) [0|2] "N/A"  AD
+ SG_ Remote_B : 24|8@1+ (1,0) [0|2] "N/A"  AD
+ SG_ Remote_F : 8|8@1+ (1,0) [0|2] "N/A"  AD
+ SG_ Remote_E : 0|8@1+ (1,0) [0|2] "N/A"  AD
+
+BO_ 886 EPB_Status: 8 VCU
+ SG_ EPB_MANUAL_PARKING_KEY : 24|8@1+ (1,0) [0|0] ""  AD
+ SG_ EPB_FINAL_STATES_R : 8|8@1+ (1,0) [0|0] ""  AD
+ SG_ EPB_FINAL_STATES_L : 0|8@1+ (1,0) [0|0] ""  AD
+ SG_ EPB_FAULT : 16|8@1+ (1,0) [0|0] ""  AD
+
+BO_ 785 VCU_EPB_Req: 8 VCU
+ SG_ VCU_EPB_Parking_Request_R : 0|8@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_EPB_Parking_Request_L : 8|8@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_EPB_Parking_Request_ALL : 16|8@1+ (1,0) [0|0] ""  AD
+ SG_ VCU_EPB_Parking_Flag_R : 24|8@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_EPB_Parking_Flag_L : 32|8@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_EPB_Parking_Flag_ALL : 40|8@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_EPB_Clamping_force_R : 48|8@1+ (100,0) [5000|15000] ""  AD
+ SG_ VCU_EPB_Clamping_force_L : 56|8@1+ (100,0) [5000|15000] ""  AD
+
+BO_ 16 MCU_DrvMotSt: 8 VCU
+ SG_ Motor_ActIdc : 36|12@1+ (1,0) [0|1000] "A"  AD
+ SG_ Motor_ActSpeed : 2|18@1+ (1,-10000) [-10000|10000] "rpm"  AD
+ SG_ Motor_ActGear : 0|2@1+ (1,0) [0|0] ""  AD
+ SG_ Motor_ActTorque : 20|16@1+ (0.1,-1000) [-1000|5553.5] "Nm"  AD
+ SG_ Motor_FalutCode : 56|8@1+ (1,0) [0|255] ""  AD
+ SG_ Motor_Temp : 48|8@1+ (1,-50) [-50|205] "C"  AD
+
+BO_ 352 VCU_MCU_Req: 8 VCU
+ SG_ VCU_SoftReset : 5|1@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_ActiveHVReleaseReq : 4|1@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_MotNegSpdLmt : 46|6@1+ (150,-9000) [-9000|0] "rpm"  AD
+ SG_ VCU_MotNegTrqLmt : 58|6@1+ (5,-315) [-315|0] "N.m"  AD
+ SG_ VCU_ClampingBrakeReq : 3|1@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_VehHVReady : 0|1@1+ (1,0) [0|1] ""  AD
+ SG_ VCU_ModeReq : 1|2@1+ (1,0) [0|3] ""  AD
+ SG_ VCU_TargetSpdReq : 24|16@1+ (1,-7000) [-7000|8000] "rpm"  AD
+ SG_ VCU_MotPosSpdLmt : 40|6@1+ (150,0) [0|8000] "rpm"  AD
+ SG_ VCU_MotPosTrqLmt : 52|6@1+ (5,0) [0|315] "N.m"  AD
+ SG_ VCU_TargetTqReq : 8|16@1+ (0.1,-1000) [-1000|1000] "N.m"  AD
+
+BO_ 2040 VCU_Version: 8 VCU
+ SG_ Day : 56|6@1+ (1,0) [0|31] "" Vector__XXX
+ SG_ Month : 52|4@1+ (1,0) [0|12] "" Vector__XXX
+ SG_ Year : 40|12@1+ (1,0) [0|2100] "" Vector__XXX
+ SG_ Byte5 : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Byte4 : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Byte3 : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Byte2 : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Byte1 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 780 VCU_Vehicle_PwrCtrl_Status: 8 VCU
+ SG_ VCU_LVMuteChargeSt : 12|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ VCU_AbnPwrOff : 11|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_PwrSt : 8|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ VCU_PUM_FSM_Pointer : 48|6@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ VCU_VehRdyDiagEnable : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_LowBattVolt : 56|8@1+ (0.1,0) [6|15] "V" Vector__XXX
+ SG_ VCU_LVPwrActReq : 5|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ VCU_HVPwrActReq : 3|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ VCU_WeakUpSig : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+
+
+
+CM_ BO_ 932 "VCU̼Ʒ";
+CM_ SG_ 932 Vehicle_Mileage2_MsgCntr "20-15";
+CM_ SG_ 932 Vehicle_TRIP1 "С̣1cm";
+CM_ SG_ 932 Vehicle_Remote_Mileage1 "ңģʽµʻ̣0.1";
+CM_ BO_ 931 "VCU̼Ʒ";
+CM_ SG_ 931 Vehicle_Mileage1_MsgCntr "1015";
+CM_ SG_ 931 Vchicle_AD_Mileage1 "Զʻʻ0.1";
+CM_ SG_ 931 Vehicle_ODO1 "ʻ̣0.1";
+CM_ BO_ 689 "ϢVCUתӲ";
+CM_ SG_ 689 BMS_Battery_Capacity_Kwh "Battery Capacity";
+CM_ SG_ 689 BMS_Battery_Capacity_Ah "Battery CapacityAh";
+CM_ SG_ 689 BMS_HVBatLowestTemCellNum "High Voltage Battery Lowest Temperature Cell Number
+ЧֵΧ 1250 
+0xFE쳣 0xFFЧ";
+CM_ SG_ 689 BMS_HVBatLowestTem "High Voltage Battery Lowest Temperature";
+CM_ SG_ 689 BMS_HVBatHighestTemCellNum "High Voltage Battery highest Temperature Cell Number
+ЧֵΧ 1250 
+ 0xFE쳣 0xFFЧ";
+CM_ SG_ 689 BMS_HVBatHighestTem "High Voltage Battery highest Temperature";
+CM_ BO_ 673 "ϢVCUתӲ";
+CM_ SG_ 673 BMS_HVBatCellVolDiff "High Voltage Battery Cell Voltage Difference";
+CM_ SG_ 673 BMS_HVBatHighestVolCellNum "0x0-0xFF:Cell Number";
+CM_ SG_ 673 BMS_HVBatLowestVolCellNum "0x0-0xFF:Cell Number";
+CM_ SG_ 673 BMS_HVBatHighestCellVol "High Voltage Battery highest Cell Voltage";
+CM_ SG_ 673 BMS_HVBatLowestCellVol "High Voltage Battery Lowest Cell Voltage";
+CM_ BO_ 160 "ϢVCUתӲ";
+CM_ SG_ 160 BMS_HVDisplaySOH "ʾSOH";
+CM_ SG_ 160 BMS_Sys_Flt "ϴ ";
+CM_ SG_ 160 BMS_Charge_StsCc "״̬
+0x00: connect
+0x01: disconect";
+CM_ SG_ 160 BMS_Charge_StsCc2 "״̬
+0x00: connect
+0x01: disconect";
+CM_ SG_ 160 BMS_Sys_Sts "0x0:Normal 
+0x1:Level 1 Fault һ(澯) 
+0x2Level 2 Fault ϣ޹ʣ
+0x3Level 3 Fault ϣ޹Ϊ0ͣ
+";
+CM_ SG_ 160 BMS_HVBatSOC "High Voltage Battery State Of Charge
+ѹSOC״̬";
+CM_ SG_ 160 BMS_HVBatCrnt "High Voltage Battery Current
+ѹصǰ";
+CM_ BO_ 782 "VCUϷ";
+CM_ SG_ 782 VCU_CAN0_Fault "0-Active
+1-TxWarning
+2-RxWarning
+3-Warning
+4-TxPassive
+5-RxPassive
+6-Passive
+7-Bus Off";
+CM_ SG_ 782 VCU_PwrCtrl_Fault "0x00:Դ޹
+0x01:µδ
+0x02:δ㣬Ϊ";
+CM_ SG_ 782 VCU_EPBActinWhenEBSMF "EBSϣEPB־λ";
+CM_ SG_ 782 VCU_EEPROM_Fault "0x00:ɹ
+0x01:ʧ";
+CM_ SG_ 782 VCU_EBSActinWhenEPBMF "EPBϣEBS־λ";
+CM_ SG_ 782 Error_Code "	
+0-9	ϵͳ
+10-19	ƶϵͳ
+20-29	תϵͳ
+30-39	عϵͳ
+40-49	DC-DC
+50-59	ԶʻDC-DC
+60-69	
+70-79	̥ѹ
+80-89	ңϡٴ
+90-99	ãԶʻϵͳ
+100-300	BMSϴ
+999	Ųģʽʾ
+";
+CM_ BO_ 323 "ϢVCUתӲ";
+CM_ SG_ 323 DBS_WarringCode "͡ 
+1bitͣպϾ棻
+2bitפʱ1min
+3bitCAN0жϾ棻
+4bitCAN1жϾ棻
+5bit߶Ͽ棻";
+CM_ SG_ 323 DBS_CheckSum2 "CheckSumУ,Checksum = byte0 XOR byte1  XOR  byte2 XOR  XOR byte6";
+CM_ SG_ 323 DBS_Fault_Code "͡
+1bitر
+2bit±
+3bit
+4bitԴǷѹϣ
+5bitԴѹϣ
+6bitѹ㣻
+7bitϣ
+8bitͨѶϣ
+9bitϣ
+10bitϣ
+11bitűϣ
+12bitѹϣ
+13bit̤λôϣ
+14bitϣ";
+CM_ SG_ 323 DBS_RollingCounter2 "015ѭͨжϣ´0ʼ";
+CM_ BO_ 1811 "ϢVCUתӲ";
+CM_ SG_ 1811 ID_Match_State "IDѧϰ־
+0ƥ 
+1δƥ 
+17Ч";
+CM_ SG_ 1811 Hight_Temperature_Warning "±ʶ
+0 
+1¾ 
+17Ч";
+CM_ SG_ 1811 Sensor_state "ʧϱʶ
+0
+110ûյ̥ź 
+17Ч";
+CM_ SG_ 1811 Sensor_Power_State "صͱ
+0 
+1 
+17Ч";
+CM_ SG_ 1811 Pressure_Warning "ѹ 
+0
+1̥ѹ>=׼ѹֵ*120%
+2̥ѹ<=׼ѹֵ*75%
+׼̥ѹݶ";
+CM_ SG_ 1811 Pressure_Unbalance "ͬѹʧ
+0-;
+1 ѹʧ;
+17 Ч";
+CM_ SG_ 1811 Tire_Temperature "̥¶";
+CM_ SG_ 1811 Tire_Pressure "̥ѹ";
+CM_ SG_ 1811 Tire_Num "̥λ
+0Ӧǰ
+1Ӧǰ
+16Ӧ
+19 ӦҺ";
+CM_ SG_ 1811 Tire_Leak_State "©ʶ
+0 
+1й¶ 
+17Ч";
+CM_ BO_ 322 "ϢVCUתӲ";
+CM_ SG_ 322 DBS_EstopFlag "ͣ־λ";
+CM_ SG_ 322 DBS_PedaiFlag "̤־λ
+0̤δ
+1̤Ѳ";
+CM_ SG_ 322 BrakePressureReqACK "ƶѹӦDBSִӦЧ
+0x0:Not ACK
+0x1: ACK     ";
+CM_ SG_ 322 DBS_Work_Mode "ģʽ0߿Һѹƣ1ģʽ2̤ģʽ
+0x0:CAN control
+0x1:Exhaust Mode     
+0x2:Pedal Mode ̤ģʽΪ0-5Vź룬Ӧ0-8MPaѹеѹʱȽģʽ          ";
+CM_ SG_ 322 DBS_RollingCounter "015ѭͨжϣ´0ʼ";
+CM_ SG_ 322 DBS_Ref_Iq "ʵʵ";
+CM_ SG_ 322 DBS_Park_Warning "פʱ侯źš01פʱ䳬1ӣ棬EPBפ";
+CM_ SG_ 322 DBS_PeadalOpening "̤忪϶ȣ0%100%";
+CM_ SG_ 322 DBS_CheckSum "CheckSumУ,Checksum = byte0 XOR byte1  XOR  byte2 XOR  XOR byte6";
+CM_ SG_ 322 DBS_HP_pressure "ƶϵͳѹ";
+CM_ SG_ 322 DBS_System_Status "ϵͳ״̬
+0:System No Fault
+1:System Waring
+2:System Fault";
+CM_ BO_ 340 "ϢVCUתVCU";
+CM_ SG_ 340 VCU_DBS_Work_Mode "ģʽ0߿ģʽ1ģʽ";
+CM_ SG_ 340 VCU_ABS_Active "ABS־λ
+0 1";
+CM_ SG_ 340 VCU_DBS_Pressure_Request "VCU͸DBSƶѹ0-8Mpa";
+CM_ SG_ 340 VCU_DBS_Request_Flag "1ʾЧ
+0ʾЧ";
+CM_ BO_ 930 "VCU̼Ʒ";
+CM_ SG_ 930 Vehicle_Odometer_MsgCntr "0-15";
+CM_ SG_ 930 Vehicle_AD_Mileage "ADģʽ";
+CM_ SG_ 930 Vehicle_Remote_Mileage "ңģʽ";
+CM_ SG_ 930 Vehicle_TRIP "С";
+CM_ SG_ 930 Vehicle_ODO "ʻ̣km";
+CM_ BO_ 778 "ѹ״̬";
+CM_ SG_ 778 Vehicle_Poweroff_Channel "0ʾǰµ綯
+1ʾǰϵͳµ״̬
+״̬Ԥ";
+CM_ SG_ 778 Vehicle_Poweroff_Countdown_Time "ʱ5µ絹ʱ
+";
+CM_ SG_ 778 Battery_Work_State "0unKnown1磬2գ3ŵ";
+CM_ SG_ 778 Vehicle_Soc "ʣ%";
+CM_ SG_ 778 Vehicle_HVBat_MsgCntr "0-15";
+CM_ SG_ 778 High_Voltage_Battery_Voltage "High Voltage Battery Voltage
+ѹصǰѹ";
+CM_ SG_ 778 High_Voltage_Battery_MaxTem "ѹʵʱ¶";
+CM_ SG_ 778 High_Voltage_Battery_Current "High Voltage Battery Current
+ѹصǰΪŵ磬Ϊ";
+CM_ BO_ 777 "Һ״̬";
+CM_ SG_ 777 RR_Tire_Leak_State "©ʶ
+0 
+1й¶ 
+";
+CM_ SG_ 777 RR_Wheel_Status_MsgCntr "0-15";
+CM_ SG_ 777 RR_Tire_Temperature "̥¶";
+CM_ SG_ 777 RR_Tire_Pressure "RR̥ѹ";
+CM_ SG_ 777 RR_Sensor_state "̥ѹʧϱʶ
+0
+110ûյ̥ź 
+";
+CM_ SG_ 777 RR_Pressure_Warning "ѹ 
+0
+1̥ѹ>=׼ѹֵ*120%
+2̥ѹ<=׼ѹֵ*75%
+3̥";
+CM_ SG_ 777 RR_WhlSpd "Һ";
+CM_ SG_ 777 RR_Reserved "Һֳ";
+CM_ BO_ 775 "ǰ״̬";
+CM_ SG_ 775 FR_Tire_Leak_State "©ʶ
+0 
+1й¶ 
+";
+CM_ SG_ 775 FR_Pressure_Warning "ѹ 
+0
+1̥ѹ>=׼ѹֵ*120%
+2̥ѹ<=׼ѹֵ*75%
+3̥";
+CM_ SG_ 775 FR_Wheel_Status_MsgCntr "0-15";
+CM_ SG_ 775 FR_Tire_Temperature "̥¶";
+CM_ SG_ 775 FR_Tire_Pressure "FR̥ѹ";
+CM_ SG_ 775 FR_Sensor_state "̥ѹʧϱʶ
+0
+110ûյ̥ź 
+";
+CM_ SG_ 775 FR_WhlSpd "ǰ";
+CM_ SG_ 775 FR_Reserved "ǰֳ";
+CM_ BO_ 776 "״̬";
+CM_ SG_ 776 RL_Pressure_Warning "ѹ 
+0
+1̥ѹ>=׼ѹֵ*120%
+2̥ѹ<=׼ѹֵ*75%
+3̥";
+CM_ SG_ 776 RL_Tire_Temperature "̥¶";
+CM_ SG_ 776 RL_Tire_Pressure "RL̥ѹ";
+CM_ SG_ 776 RL_Sensor_state "̥ѹʧϱʶ
+0
+110ûյ̥ź 
+";
+CM_ SG_ 776 RL_Tire_Leak_State "©ʶ
+0 
+1й¶ 
+";
+CM_ SG_ 776 RL_WhlSpd "";
+CM_ SG_ 776 RL_Reserved "ֳ";
+CM_ SG_ 776 RL_Wheel_Status_MsgCntr "0-15";
+CM_ BO_ 774 "ǰ״̬";
+CM_ SG_ 774 FL_Sensor_state "̥ѹʧϱʶ
+0
+110ûյ̥ź 
+";
+CM_ SG_ 774 FL_Tire_Temperature "̥¶";
+CM_ SG_ 774 FL_Pressure_Warning "ѹ 
+0
+1̥ѹ>=׼ѹֵ*120%
+2̥ѹ<=׼ѹֵ*75%
+3̥";
+CM_ SG_ 774 FL_Tire_Leak_State "©ʶ
+0 
+1й¶ 
+";
+CM_ SG_ 774 FL_Tire_Pressure "FL̥ѹ";
+CM_ SG_ 774 FL_WhlSpd "ǰ";
+CM_ SG_ 774 FL_Reserved "ǰֳ";
+CM_ SG_ 774 FL_Wheel_Status_MsgCntr "0-15";
+CM_ BO_ 771 "VCU״̬";
+CM_ SG_ 771 Vehicle_Range "ʣ";
+CM_ SG_ 771 Drive_Mode_State "0ʾ˹ģʽȼ
+1ʾңģʽȼ
+2ʾADģʽȼ
+3ʾģʽȼߣֹ
+ģʽҪģʽȷ";
+CM_ SG_ 771 EPB_Status "0ʾͷţ1ʾӽ";
+CM_ SG_ 771 Accelerator_Pedal_Status "̤λ0-100%";
+CM_ SG_ 771 Brake_Pedal_Status "ɲ̤λ0-100%";
+CM_ SG_ 771 Vehicle_Status_1_MsgCntr "0-15";
+CM_ SG_ 771 Vehicle_Gear "λ״̬
+0P
+1D
+2N
+3R";
+CM_ BO_ 772 "VCU״̬";
+CM_ SG_ 772 Vehicle_Status_2_MsgCntr "0-15";
+CM_ SG_ 772 Vehicle_Steering_Angle "ֶתǣҸתٶȣݶ";
+CM_ SG_ 772 Vehicle_Brake_Pressure "ƶ·ѹ";
+CM_ SG_ 772 Vehicle_Speed "ٶkm/hΪ";
+CM_ BO_ 769 "VCU״̬";
+CM_ SG_ 769 Horn_2_State "0ʾشȹأ1ʾشȿ";
+CM_ SG_ 769 ADS_Light_State "0ADSƹ
+1ADSƵ
+2ADSƸ";
+CM_ SG_ 769 KERS_LimitedState "0x00
+0x01״̬";
+CM_ SG_ 769 Oil_pot_State "ƶҺź
+0ͺλ
+1";
+CM_ SG_ 769 Business_Relay_State "ҵϵͳ̵״̬
+1
+0";
+CM_ SG_ 769 Relay_4G_State "4Gϵͳ̵״̬
+1
+0";
+CM_ SG_ 769 Radar_Relay_State "״ϵͳ̵״̬
+1
+0";
+CM_ SG_ 769 Orin_Relay_State "Orinϵͳ̵״̬
+1
+0";
+CM_ SG_ 769 Motor_Temp_State "0ʾ¶
+1ʾ¶ȱ";
+CM_ SG_ 769 Fog_Light_state "״̬
+0δ
+1ƿ";
+CM_ SG_ 769 Power_Button_State "Դ
+0δ
+1";
+CM_ SG_ 769 EPB_Button_State "EPBפ
+0δ
+1";
+CM_ SG_ 769 Motor_Torque_Limit_State "0ʾ
+1ʾŤ
+";
+CM_ SG_ 769 B_Press_Switch_Collision_State "0ʾѹδ
+1ʾѹش";
+CM_ SG_ 769 Remo_Touch_Switch_Disable_State "0ʾңģʽ´δã
+1ʾңģʽ´";
+CM_ SG_ 769 F_Press_Switch_Collision_State "0ʾǰѹδ
+1ʾǰѹش";
+CM_ SG_ 769 B_Touch_Switch_Disable_State "0ʾδã1ʾ";
+CM_ SG_ 769 L_Touch_Switch_Disable_State "0ʾδã1ʾ";
+CM_ SG_ 769 R_Touch_Switch_Disable_State "0ʾҴδã1ʾҴ";
+CM_ SG_ 769 F_Touch_Switch_Disable_State "0ʾǰδã1ʾǰ";
+CM_ SG_ 769 R_Touch_Switch_Collision_State "0ʾҴδ1ʾҴ";
+CM_ SG_ 769 L_Touch_Switch_Collision_State "0ʾδ1ʾ";
+CM_ SG_ 769 AD_FaultCode "ADģʽԭ
+0 
+1 ̲ųǹֹAD
+";
+CM_ SG_ 769 EPB_Diagnosis "1ʾйϣ0ʾ޹";
+CM_ SG_ 769 Move_Switch "Ų0ʾδ£1ʾ
+ʱ̲ԶƶͣǰȻЧңģʽЧ";
+CM_ SG_ 769 LowBeam_State "0ʾСƹأ1ʾСƿ";
+CM_ SG_ 769 Reversing_Lights_State "  0ʾ  1ʾ";
+CM_ SG_ 769 Tire_Sensor_State "0ʾ̥ѹƺź
+1ʾ̥ѹƺźŶʧ";
+CM_ SG_ 769 Brake_Light_State "0ʾƶƹأ1ʾƶƿ";
+CM_ SG_ 769 Vehicle_Fault_Grade "ϵȼ0123
+0Ϊ޹
+1 Ӱ쳵ʻ
+2 ٶȻƳ5km/hŤػ
+3Ϊ߼ϣֹʻ
+";
+CM_ SG_ 769 EPS_State "1ʾйϣ0ʾ޹";
+CM_ SG_ 769 Vehicle_Diagnosis_MsgCntr "0-15";
+CM_ SG_ 769 Horn_1_State "0ʾٱأ1ʾٱ";
+CM_ SG_ 769 HighBeam_State "0ʾƹأ1ʾƿ";
+CM_ SG_ 769 Right_Turn_Light_State "0ʾתƹأ1ʾתƿ";
+CM_ SG_ 769 Left_Turn_Light_State "0ʾתƹأ1ʾתƿ";
+CM_ SG_ 769 B_Touch_Switch_Collision_State "0ʾδ1ʾ";
+CM_ SG_ 769 F_Touch_Switch_Collision_State "0ʾǰδ1ʾǰ";
+CM_ SG_ 769 BMS_State "0ʾ1ʾй";
+CM_ SG_ 769 Emergency_Button_State "0ʾͣťδ£1ʾͣť";
+CM_ SG_ 769 DBS_State "1ʾйϣ0ʾ޹";
+CM_ SG_ 769 AD_State "0ʾյADźţ1ʾδյADź";
+CM_ SG_ 769 Remote_State "1ʾйϣ0ʾ޹";
+CM_ SG_ 769 Motor_State "1ʾйϣ0ʾ޹";
+CM_ BO_ 399 "ϢVCUתӲ";
+CM_ SG_ 399 EPS_Fault_Code "0000:޹
+0001:ѹ
+0010:Ƿѹ
+0011:
+0100:Ťش
+0101:Ƕȴв
+0110:ڲ
+0111:ͨѶ
+1000:Ƕλδ궨
+1001:
+
+";
+CM_ SG_ 399 EPS_Current "ǰ";
+CM_ SG_ 399 EPS_Fault_Grade "BIT0=1 һ
+BIT1=1 
+BIT2=1 
+BIT3=1 ͨѶ";
+CM_ SG_ 399 EPS_Temperature "EPS ECU¶";
+CM_ SG_ 399 EPS_Angle_Spd "EPSٶȷ
+";
+CM_ SG_ 399 EPS_Calibration_Status "1 EPSλδ궨0 EPSλѱ궨";
+CM_ SG_ 399 EPS_StrAngle_Act "EPSǰǶֵ";
+CM_ SG_ 399 EPS_Fault "1 ECU⵽ϣ0 ECUδ⵽";
+CM_ SG_ 399 EPS_Work_Mode_Status "EPS 1ģʽ0ֹͣģʽ";
+CM_ BO_ 788 "ϢVCUתVCU";
+CM_ SG_ 788 VCU_Request_EPS_Angle_Speed "תٶ";
+CM_ SG_ 788 VCU_Request_EPS_Angle_Calibrate "Ҫʱֽڷ 0x00 ";
+CM_ SG_ 788 VCU_Req_EPS_Target_Angle "Ƕ";
+CM_ SG_ 788 VCU_EPS_CtrlEnable "
+EPSʹܣ10ֹͣ";
+CM_ BO_ 267 "ϢVCUתӲ";
+CM_ BO_ 266 "ϢVCUתӲ";
+CM_ BO_ 886 "ϢVCUתӲ";
+CM_ SG_ 886 EPB_MANUAL_PARKING_KEY "ť״̬  0 Netural1 ͷţ 2   3 δ루δֶʱԿcanƣ4 ع";
+CM_ SG_ 886 EPB_FINAL_STATES_R "EPB״̬  0x0Released0x1Applied0x2Releasing  0x3Applying0x4:unknown";
+CM_ SG_ 886 EPB_FINAL_STATES_L "EPB״̬ 0x0Released0x1Applied0x2Releasing0x3Applying0x4:unknown";
+CM_ SG_ 886 EPB_FAULT "EPB룺 1bitҿǯϣ2bitǯϣ  3bitECUϣ 4bitͨѶϣյVCUVCUжΪͨѶϣ5bitδ֪״̬";
+CM_ BO_ 785 "ϢVCUתVCU";
+CM_ SG_ 785 VCU_EPB_Parking_Request_R "VCUEPBҿǯ1 ͷţ 2 3 һ״ֵ̬";
+CM_ SG_ 785 VCU_EPB_Parking_Request_L "VCUEPBǯ1 ͷţ 2 3 һ״ֵ̬";
+CM_ SG_ 785 VCU_EPB_Parking_Request_ALL "VCUEPBҿǯͬʱ1 ͷţ 2 3 һ״ֵ̬";
+CM_ SG_ 785 VCU_EPB_Parking_Flag_R "EPBʹܣ1Ч 0Ч";
+CM_ SG_ 785 VCU_EPB_Parking_Flag_L "EPBʹܣ1Ч 0Ч";
+CM_ SG_ 785 VCU_EPB_Parking_Flag_ALL "EPBʹܣ1Ч 0Ч";
+CM_ SG_ 785 VCU_EPB_Clamping_force_R "ҿǯн0N-15000N";
+CM_ SG_ 785 VCU_EPB_Clamping_force_L "ǯн0N-15000N";
+CM_ BO_ 16 "ϢVCUתӲ";
+CM_ SG_ 16 Motor_ActIdc "";
+CM_ SG_ 16 Motor_ActSpeed "ת";
+CM_ SG_ 16 Motor_ActGear "MCUڲʵӦĵλ 0x00:N 0x01:ǰD 0x10:R 0x11:Ԥ";
+CM_ SG_ 16 Motor_ActTorque "Ť";
+CM_ SG_ 16 Motor_FalutCode "б";
+CM_ SG_ 16 Motor_Temp "¶";
+CM_ BO_ 352 "ϢVCUתVCU";
+CM_ SG_ 352 VCU_ActiveHVReleaseReq "0x00:
+0x01:йѹ";
+CM_ SG_ 352 VCU_MotNegSpdLmt "ŤģʽµתٶӦ";
+CM_ SG_ 352 VCU_MotNegTrqLmt "ٶģʽµŤضӦֵ";
+CM_ SG_ 352 VCU_ClampingBrakeReq "բ
+0ɱբ
+1բ";
+CM_ SG_ 352 VCU_VehHVReady "״̬0:״̬ 1:ɽ״̬";
+CM_ SG_ 352 VCU_ModeReq "ģʽ0x0:Ťģʽ 0x1:ٶģʽ 0x2:Ťػģʽ 0x3:ٶȻģʽ ";
+CM_ SG_ 352 VCU_TargetSpdReq "תת٣תΪתתΪת 
+";
+CM_ SG_ 352 VCU_MotPosSpdLmt "ŤģʽµתٶӦ";
+CM_ SG_ 352 VCU_MotPosTrqLmt "ٶģʽµŤضӦֵ";
+CM_ SG_ 352 VCU_TargetTqReq "ŤŤ,ŤΪתŤΪת תŤֵһʱΪ״̬֮Ϊ״̬";
+CM_ BO_ 2040 "VCU汾";
+CM_ SG_ 2040 Day "dd";
+CM_ SG_ 2040 Month "MM";
+CM_ SG_ 2040 Year "yyyy";
+CM_ SG_ 780 VCU_LVMuteChargeSt "0x00:δ
+0x01:
+0x02:
+0x03:δ
+0x04:貹";
+CM_ SG_ 780 VCU_AbnPwrOff "0x00:ǰһµΪµ
+0x01:ǰһµΪ쳣ԴϿ";
+CM_ SG_ 780 VCU_PwrSt "0x00:Դ޲
+0x01:ػ
+0x02:";
+CM_ SG_ 780 VCU_PUM_FSM_Pointer "Debug_Only";
+CM_ SG_ 780 VCU_VehRdyDiagEnable "Լʹ";
+CM_ SG_ 780 VCU_LowBattVolt "VCU AI28ɼBATTѹ";
+CM_ SG_ 780 VCU_LVPwrActReq "Debug_Only";
+CM_ SG_ 780 VCU_HVPwrActReq "Debug_Only
+";
+CM_ SG_ 780 VCU_WeakUpSig "0x01:TboxԶ̻
+0x02:
+0x03:δ֪ԭ򣨿Ϊδ֪CANĻѣ
+0x04:OBC
+0x05:Ǧزģʽ
+0x06:п
+";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_ "DBName" "G14_CAN2_VCU";
+BA_ "GenMsgSendType" BO_ 932 0;
+BA_ "GenMsgCycleTime" BO_ 932 1000;
+BA_ "GenMsgCycleTime" BO_ 931 1000;
+BA_ "GenMsgSendType" BO_ 931 0;
+BA_ "GenMsgSendType" BO_ 689 0;
+BA_ "GenMsgCycleTime" BO_ 689 50;
+BA_ "GenMsgSendType" BO_ 673 0;
+BA_ "GenMsgCycleTime" BO_ 673 50;
+BA_ "GenMsgSendType" BO_ 160 0;
+BA_ "GenMsgCycleTime" BO_ 160 50;
+BA_ "GenMsgSendType" BO_ 782 0;
+BA_ "GenMsgCycleTime" BO_ 782 500;
+BA_ "GenMsgCycleTime" BO_ 323 50;
+BA_ "GenMsgSendType" BO_ 323 0;
+BA_ "GenMsgCycleTime" BO_ 1811 50;
+BA_ "GenMsgSendType" BO_ 1811 0;
+BA_ "GenMsgCycleTime" BO_ 322 50;
+BA_ "GenMsgSendType" BO_ 322 0;
+BA_ "GenMsgCycleTime" BO_ 340 20;
+BA_ "GenMsgSendType" BO_ 340 0;
+BA_ "GenMsgSendType" BO_ 930 0;
+BA_ "GenMsgCycleTime" BO_ 930 1000;
+BA_ "GenMsgSendType" BO_ 778 0;
+BA_ "GenMsgCycleTime" BO_ 778 20;
+BA_ "GenMsgSendType" BO_ 777 0;
+BA_ "GenMsgCycleTime" BO_ 777 20;
+BA_ "GenMsgSendType" BO_ 775 0;
+BA_ "GenMsgCycleTime" BO_ 775 20;
+BA_ "GenMsgSendType" BO_ 776 0;
+BA_ "GenMsgCycleTime" BO_ 776 20;
+BA_ "GenMsgSendType" BO_ 774 0;
+BA_ "GenMsgCycleTime" BO_ 774 20;
+BA_ "GenMsgSendType" BO_ 771 0;
+BA_ "GenMsgCycleTime" BO_ 771 20;
+BA_ "GenMsgSendType" BO_ 772 0;
+BA_ "GenMsgCycleTime" BO_ 772 10;
+BA_ "GenMsgSendType" BO_ 769 0;
+BA_ "GenMsgCycleTime" BO_ 769 20;
+BA_ "GenMsgSendType" BO_ 399 0;
+BA_ "GenMsgCycleTime" BO_ 399 50;
+BA_ "GenMsgSendType" BO_ 788 0;
+BA_ "GenMsgCycleTime" BO_ 788 20;
+BA_ "GenMsgSendType" BO_ 267 0;
+BA_ "GenMsgCycleTime" BO_ 267 50;
+BA_ "GenMsgSendType" BO_ 266 0;
+BA_ "GenMsgCycleTime" BO_ 266 50;
+BA_ "GenMsgCycleTime" BO_ 886 50;
+BA_ "GenMsgSendType" BO_ 886 0;
+BA_ "GenMsgCycleTime" BO_ 785 20;
+BA_ "GenMsgSendType" BO_ 785 0;
+BA_ "GenMsgSendType" BO_ 16 0;
+BA_ "GenMsgCycleTime" BO_ 16 50;
+BA_ "GenMsgSendType" BO_ 352 0;
+BA_ "GenMsgCycleTime" BO_ 352 20;
+BA_ "GenMsgSendType" BO_ 2040 0;
+BA_ "GenMsgCycleTime" BO_ 2040 1000;
+BA_ "GenMsgCycleTime" BO_ 780 50;
+BA_ "GenMsgSendType" BO_ 780 0;
+BA_ "GenSigInactiveValue" SG_ 323 DBS_Fault_Code 10;
+BA_ "GenSigInactiveValue" SG_ 322 DBS_HP_pressure 10;
+BA_ "GenSigInactiveValue" SG_ 322 DBS_System_Status 10;
+BA_ "GenSigInactiveValue" SG_ 340 VCU_DBS_Pressure_Request 20;
+BA_ "GenSigInactiveValue" SG_ 340 VCU_DBS_Request_Flag 20;
+
