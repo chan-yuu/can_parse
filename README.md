@@ -1,6 +1,7 @@
 # 安装库
 # python
 pip install python-can cantools
+
 sudo apt install can-utils
 
 # can_parse
